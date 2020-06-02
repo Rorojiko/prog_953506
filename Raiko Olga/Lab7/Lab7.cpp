@@ -24,7 +24,7 @@ typedef struct creditcard
 } creditcard;
 typedef creditcard* CCard;
 
-//объявление функций
+//РѕР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёР№
 int ReadNumber();
 int ReadBarCode();
 int ReadNumProduct();
@@ -42,18 +42,18 @@ void ShowCreditCard(CCard head);
 CCard DeleteCreditCard(CCard head);
 void SaveCreditCardInFile(CCard headCC);
 
-//проверки на ввод
+//РїСЂРѕРІРµСЂРєРё РЅР° РІРІРѕРґ
 int ReadNumber()
 {
-	char c; //Переменная для хранения каждого введённого символа
-	int num, i; //Переменная - вводимое число
+	char c; //РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєР°Р¶РґРѕРіРѕ РІРІРµРґС‘РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р°
+	int num, i; //РџРµСЂРµРјРµРЅРЅР°СЏ - РІРІРѕРґРёРјРѕРµ С‡РёСЃР»Рѕ
 	char str[10];
 	bool correct;
 	do
 	{
 		i = 0;
 		correct = true;
-		while (i < 9 && (c = _getch()) != 13 && c != ' ') //Проверка на границы и получение символа с клавиатуры
+		while (i < 9 && (c = _getch()) != 13 && c != ' ') //РџСЂРѕРІРµСЂРєР° РЅР° РіСЂР°РЅРёС†С‹ Рё РїРѕР»СѓС‡РµРЅРёРµ СЃРёРјРІРѕР»Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 		{
 			str[i++] = c;
 			_putch(c);
@@ -67,18 +67,18 @@ int ReadNumber()
 				break;
 			}
 		}
-	} while (correct != true); //Если не число - ввод числа повторяется
+	} while (correct != true); //Р•СЃР»Рё РЅРµ С‡РёСЃР»Рѕ - РІРІРѕРґ С‡РёСЃР»Р° РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ
 
-	str[i] = '\0'; //Сформированную строку завершаем признаком окончания строки
+	str[i] = '\0'; //РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ Р·Р°РІРµСЂС€Р°РµРј РїСЂРёР·РЅР°РєРѕРј РѕРєРѕРЅС‡Р°РЅРёСЏ СЃС‚СЂРѕРєРё
 
-	num = atoi(str); //Преобразуем строку в число
+	num = atoi(str); //РџСЂРµРѕР±СЂР°Р·СѓРµРј СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ
 	return num;
 }
 
 int ReadBarCode()
 {
-	char c; //Переменная для хранения каждого введённого символа
-	int num, i; //Переменная - вводимое число
+	char c; //РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєР°Р¶РґРѕРіРѕ РІРІРµРґС‘РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р°
+	int num, i; //РџРµСЂРµРјРµРЅРЅР°СЏ - РІРІРѕРґРёРјРѕРµ С‡РёСЃР»Рѕ
 	char str[7];
 	bool correct;
 	do
@@ -86,7 +86,7 @@ int ReadBarCode()
 		i = 0;
 		correct = true;
 		printf("Write 6-digit barcode: ");
-		while (i < 6 && (c = _getch()) != 13) //Проверка на 13-значность и получение символа с клавиатуры
+		while (i < 6 && (c = _getch()) != 13) //РџСЂРѕРІРµСЂРєР° РЅР° 13-Р·РЅР°С‡РЅРѕСЃС‚СЊ Рё РїРѕР»СѓС‡РµРЅРёРµ СЃРёРјРІРѕР»Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 		{
 			str[i++] = c;
 			_putch(c);
@@ -108,18 +108,18 @@ int ReadBarCode()
 				}
 			}
 		}
-	} while (correct != true); //Если число не 4-значное - ввод числа повторяется
+	} while (correct != true); //Р•СЃР»Рё С‡РёСЃР»Рѕ РЅРµ 4-Р·РЅР°С‡РЅРѕРµ - РІРІРѕРґ С‡РёСЃР»Р° РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ
 
-	str[6] = '\0'; //Сформированную строку завершаем признаком окончания строки
+	str[6] = '\0'; //РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ Р·Р°РІРµСЂС€Р°РµРј РїСЂРёР·РЅР°РєРѕРј РѕРєРѕРЅС‡Р°РЅРёСЏ СЃС‚СЂРѕРєРё
 
-	num = atoi(str); //Преобразуем строку в число
+	num = atoi(str); //РџСЂРµРѕР±СЂР°Р·СѓРµРј СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ
 	return num;
 }
 
 int ReadNumProduct()
 {
-	char c; //Переменная для хранения каждого введённого символа
-	int num, i; //Переменная - вводимое число
+	char c; //РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєР°Р¶РґРѕРіРѕ РІРІРµРґС‘РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р°
+	int num, i; //РџРµСЂРµРјРµРЅРЅР°СЏ - РІРІРѕРґРёРјРѕРµ С‡РёСЃР»Рѕ
 	char str[7];
 	bool correct;
 	do
@@ -127,12 +127,12 @@ int ReadNumProduct()
 		i = 0;
 		correct = true;
 		printf("\nWrite num of product: ");
-		while ((c = _getch()) != 13 && i < 6) //Можно ввести не более 6 цифр 
+		while ((c = _getch()) != 13 && i < 6) //РњРѕР¶РЅРѕ РІРІРµСЃС‚Рё РЅРµ Р±РѕР»РµРµ 6 С†РёС„СЂ 
 		{
 			str[i++] = c;
 			_putch(c);
 		}
-		str[i] = '\0';//Сформированную строку завершаем признаком окончания строки
+		str[i] = '\0';//РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ Р·Р°РІРµСЂС€Р°РµРј РїСЂРёР·РЅР°РєРѕРј РѕРєРѕРЅС‡Р°РЅРёСЏ СЃС‚СЂРѕРєРё
 
 		if (strlen(str) == 0)
 		{
@@ -144,7 +144,7 @@ int ReadNumProduct()
 		}
 		else
 		{
-			//Проверка на цифры в строке
+			//РџСЂРѕРІРµСЂРєР° РЅР° С†РёС„СЂС‹ РІ СЃС‚СЂРѕРєРµ
 			for (int j = 0; j < i; j++)
 			{
 				if (!isdigit(str[j]))
@@ -155,16 +155,16 @@ int ReadNumProduct()
 				}
 			}
 		}
-	} while (correct != true); //Если ввод некорректный - ввод числа повторяется
+	} while (correct != true); //Р•СЃР»Рё РІРІРѕРґ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ - РІРІРѕРґ С‡РёСЃР»Р° РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ
 
-	num = atoi(str); //Преобразуем строку в число
+	num = atoi(str); //РџСЂРµРѕР±СЂР°Р·СѓРµРј СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ
 	return num;
 }
 
 int ReadNumOfCard()
 {
-	char c; //Переменная для хранения каждого введённого символа
-	int num, i; //Переменная - вводимое число
+	char c; //РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєР°Р¶РґРѕРіРѕ РІРІРµРґС‘РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р°
+	int num, i; //РџРµСЂРµРјРµРЅРЅР°СЏ - РІРІРѕРґРёРјРѕРµ С‡РёСЃР»Рѕ
 	char str[5];
 	bool correct;
 	do
@@ -172,7 +172,7 @@ int ReadNumOfCard()
 		i = 0;
 		correct = true;
 		printf("Write 4-digit number of card: ");
-		while (i < 4 && (c = _getch()) != 13) //Проверка на 4-значность и получение символа с клавиатуры
+		while (i < 4 && (c = _getch()) != 13) //РџСЂРѕРІРµСЂРєР° РЅР° 4-Р·РЅР°С‡РЅРѕСЃС‚СЊ Рё РїРѕР»СѓС‡РµРЅРёРµ СЃРёРјРІРѕР»Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 		{
 			str[i++] = c;
 			_putch(c);
@@ -195,15 +195,15 @@ int ReadNumOfCard()
 				}
 			}
 		}
-	} while (correct != true); //Если число не 4-значное - ввод числа повторяется
+	} while (correct != true); //Р•СЃР»Рё С‡РёСЃР»Рѕ РЅРµ 4-Р·РЅР°С‡РЅРѕРµ - РІРІРѕРґ С‡РёСЃР»Р° РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ
 
-	str[4] = '\0'; //Сформированную строку завершаем признаком окончания строки
+	str[4] = '\0'; //РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ Р·Р°РІРµСЂС€Р°РµРј РїСЂРёР·РЅР°РєРѕРј РѕРєРѕРЅС‡Р°РЅРёСЏ СЃС‚СЂРѕРєРё
 
-	num = atoi(str); //Преобразуем строку в число
+	num = atoi(str); //РџСЂРµРѕР±СЂР°Р·СѓРµРј СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ
 	return num;
 }
 
-//покупка
+//РїРѕРєСѓРїРєР°
 int Purchase(BCode headbarcode)
 {
 	int sum = 0;
@@ -252,7 +252,7 @@ int Purchase(BCode headbarcode)
 	return sum;
 }
 
-//применение скидочной карты
+//РїСЂРёРјРµРЅРµРЅРёРµ СЃРєРёРґРѕС‡РЅРѕР№ РєР°СЂС‚С‹
 int UseCreditCard(int sum, CCard headcreditcard)
 {
 	if (sum != 0)
@@ -290,7 +290,7 @@ int UseCreditCard(int sum, CCard headcreditcard)
 	return sum;
 }
 
-//операции с штрихкодами
+//РѕРїРµСЂР°С†РёРё СЃ С€С‚СЂРёС…РєРѕРґР°РјРё
 BCode ReadBarCodesFromFile(BCode headBC)
 {
 	int numberofbarcodes;
@@ -464,7 +464,7 @@ void SaveBarCodesInFile(BCode headBC)
 	fclose(outputBarCode);
 }
 
-//операции со скидочными картами
+//РѕРїРµСЂР°С†РёРё СЃРѕ СЃРєРёРґРѕС‡РЅС‹РјРё РєР°СЂС‚Р°РјРё
 CCard ReadCreditCardsFromFile(CCard headCC)
 {
 	int numberofcards;
@@ -644,6 +644,27 @@ void SaveCreditCardInFile(CCard headCC)
 	system("pause");
 	fclose(outputCreditCard);
 }
+void FreeMemory(barcode* BCode)
+{
+	free(BCode->next);
+	free(BCode->prev);
+	if (BCode->prev != NULL)
+		BCode->prev->next = BCode->next;
+	if (BCode->next != NULL)
+		BCode->next->prev = BCode->prev;
+	free(BCode);
+}
+
+void FreeMemory(creditcard* CCard)
+{
+	free(CCard->next);
+	free(CCard->prev);
+	if (CCard->prev != NULL)
+		CCard->prev->next = CCard->next;
+	if (CCard->next != NULL)
+		CCard->next->prev = CCard->prev;
+	free(CCard);
+}
 
 
 int main()
@@ -720,6 +741,8 @@ int main()
 			break;
 		}
 	} while (choice != 12);
+	FreeMemory(headBC);
+	FreeMemory(headCC);
 	return 0;
 }
 
@@ -733,3 +756,4 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
