@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Попытканомер2
+namespace Курсовая
 {
     public partial class Form1 : Form
     { int i = 0;
@@ -80,18 +80,6 @@ namespace Попытканомер2
                 ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(toolStripTextBox1.Text);
             }
         }
-       /* private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (toolStripComboBox1.SelectedIndex)
-            {
-                case 0: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("www.vk.com"); break;
-                case 1: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("olocoder.ru"); break;
-                case 2: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("www.youtube.com"); break;
-                case 3: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("www.google.com"); break;
-                case 4: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("www.yandex.ru"); break;
-                case 5: ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("www.mail.ru"); break;
-            }
-        }*/
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
